@@ -1,46 +1,24 @@
 <template>
   <div class="container">
+    <p class="error-text">404</p>
     <div>
-      <Logo />
-      <h1 class="title">nuxt-mission</h1>
-      <p v-if="$fetchState.pending">Fetching planets....</p>
-      <p v-else-if="$fetchState.error">Error while fetching planets</p>
-      <ul>
-        <li>
-          <NuxtLink to="/nuxt">Nuxt</NuxtLink>
-        </li>
-        <li v-for="planet in planets" :key="planet.slug">
-          <NuxtLink :to="planet.slug">
-            {{ planet.title }}
-          </NuxtLink>
-        </li>
-      </ul>
+      <span>Take me</span>
+      <NuxtLink to="/">Home</NuxtLink>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  layout: 'home',
-  async fetch() {
-    this.planets = await fetch('https://api.nuxtjs.dev/planets').then((res) =>
-      res.json()
-    )
-  },
-  data() {
-    return {
-      planets: [],
-    }
-  },
-}
+export default {}
 </script>
 
-<style>
+<style scoped>
 ul {
   list-style-type: none;
   padding: 0;
 }
 .container {
+  background: aqua;
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
