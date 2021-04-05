@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  transition: 'bounce',
   async asyncData({ params }) {
     const planet = await fetch(
       `https://api.nuxtjs.dev/planets/${params.slug}`
