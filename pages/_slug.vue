@@ -9,6 +9,25 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: this.planet.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.planet.description,
+        },
+      ],
+      link: [
+        {
+          rel: 'canonical',
+          type: 'canonical',
+          href: `https://jamstack-exploere-nuxt-mission/${this.$route.params.slug}`,
+        },
+      ],
+    }
+  },
   async asyncData({ params }) {
     const planet = await fetch(
       `https://api.nuxtjs.dev/planets/${params.slug}`
@@ -22,6 +41,12 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+h1 {
+  font-family: Nunito, sans-serif;
+}
+</style>
 
 <style>
 img {
